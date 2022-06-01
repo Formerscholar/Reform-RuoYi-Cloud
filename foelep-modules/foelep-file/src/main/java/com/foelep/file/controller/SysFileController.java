@@ -1,24 +1,23 @@
 package com.foelep.file.controller;
 
+import com.foelep.common.core.domain.R;
+import com.foelep.common.core.utils.file.FileUtils;
+import com.foelep.file.service.ISysFileService;
+import com.foelep.system.api.domain.SysFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.foelep.common.core.domain.R;
-import com.foelep.common.core.utils.file.FileUtils;
-import com.foelep.file.service.ISysFileService;
-import com.foelep.system.api.domain.SysFile;
 
 /**
  * 文件请求处理
- * 
- * @author ruoyi
+ *
+ * @author foelep
  */
 @RestController
-public class SysFileController
-{
+public class SysFileController {
     private static final Logger log = LoggerFactory.getLogger(SysFileController.class);
 
     @Autowired

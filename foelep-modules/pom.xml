@@ -13,6 +13,7 @@
         <module>foelep-gen</module>
         <module>foelep-job</module>
         <module>foelep-file</module>
+        <module>foelep-flowable</module>
     </modules>
 
     <artifactId>foelep-modules</artifactId>

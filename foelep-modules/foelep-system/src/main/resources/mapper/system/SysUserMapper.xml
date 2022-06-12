@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <collection  property="roles"   javaType="java.util.List"           resultMap="RoleResult" />
     </resultMap>
 	
-    <resultMap id="deptResult" type="com.foelep.system.api.domain.SysUser">
+    <resultMap id="deptResult" type="com.foelep.system.api.domain.SysDept">
         <id     property="deptId"    column="dept_id"     />
         <result property="parentId"  column="parent_id"   />
         <result property="deptName"  column="dept_name"   />
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="status"    column="dept_status" />
     </resultMap>
 	
-    <resultMap id="RoleResult" type="com.foelep.system.api.domain.SysUser">
+    <resultMap id="RoleResult" type="com.foelep.system.api.domain.SysRole">
         <id     property="roleId"       column="role_id"        />
         <result property="roleName"     column="role_name"      />
         <result property="roleKey"      column="role_key"       />

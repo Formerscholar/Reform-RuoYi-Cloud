@@ -29,14 +29,14 @@ Vue.use(Router)
 
 // 公共路由
 export const constantRoutes = [{
-    path: '/redirect',
-    component: Layout,
-    hidden: true,
-    children: [{
-      path: '/redirect/:path(.*)',
-      component: () => import('@/views/redirect')
-    }]
-  },
+  path: '/redirect',
+  component: Layout,
+  hidden: true,
+  children: [{
+    path: '/redirect/:path(.*)',
+    component: () => import('@/views/redirect')
+  }]
+},
   {
     path: '/login',
     component: () => import('@/views/login'),
@@ -86,25 +86,61 @@ export const constantRoutes = [{
         icon: 'user'
       }
     }]
+  },
+  {
+    path: '/flowable',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'definition/model/',
+      component: (resolve) => require(['@/views/flowable/definition/model'], resolve),
+      name: 'Model',
+      meta: {
+        title: '流程设计',
+        icon: ''
+      }
+    },
+      {
+        path: 'task/record/index',
+        component: (resolve) => require(['@/views/flowable/task/record/index'], resolve),
+        name: 'Record',
+        meta: {
+          title: '流程处理',
+          icon: ''
+        }
+      }]
+  },
+  {
+    path: '/tool',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'build/index',
+        component: (resolve) => require(['@/views/tool/build/index'], resolve),
+        name: 'FormBuild',
+        meta: { title: '表单配置', icon: '' }
+      }
+    ]
   }
 ]
 
 // 动态路由，基于用户权限动态去加载
 export const dynamicRoutes = [{
-    path: '/system/user-auth',
-    component: Layout,
-    hidden: true,
-    permissions: ['system:user:edit'],
-    children: [{
-      path: 'role/:userId(\\d+)',
-      component: () => import('@/views/system/user/authRole'),
-      name: 'AuthRole',
-      meta: {
-        title: '分配角色',
-        activeMenu: '/system/user'
-      }
-    }]
-  },
+  path: '/system/user-auth',
+  component: Layout,
+  hidden: true,
+  permissions: ['system:user:edit'],
+  children: [{
+    path: 'role/:userId(\\d+)',
+    component: () => import('@/views/system/user/authRole'),
+    name: 'AuthRole',
+    meta: {
+      title: '分配角色',
+      activeMenu: '/system/user'
+    }
+  }]
+},
   {
     path: '/system/role-auth',
     component: Layout,
@@ -164,34 +200,11 @@ export const dynamicRoutes = [{
         activeMenu: '/tool/gen'
       }
     }]
-  },
-  {
-    path: '/flowable',
-    component: Layout,
-    hidden: true,
-    children: [{
-      path: 'definition/model/',
-      component: (resolve) => require(['@/views/flowable/definition/model'], resolve),
-      name: 'Model',
-      meta: {
-        title: '流程设计',
-        icon: ''
-      }
-    },
-    {
-      path: 'task/record/index',
-      component: (resolve) => require(['@/views/flowable/task/record/index'], resolve),
-      name: 'Record',
-      meta: {
-        title: '流程处理',
-        icon: ''
-      }
-    }]
   }
 ]
 
 // 防止连续点击多次路由报错
-let routerPush = Router.prototype.push;
+let routerPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   return routerPush.call(this, location).catch(err => err)
 }

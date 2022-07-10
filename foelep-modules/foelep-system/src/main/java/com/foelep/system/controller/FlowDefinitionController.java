@@ -167,9 +167,11 @@ public class FlowDefinitionController {
     }
 
     @ApiOperation(value = "删除流程")
-    @DeleteMapping(value = "/delete")
-    public AjaxResult delete(@ApiParam(value = "流程部署ID", required = true) @RequestParam String deployId) {
-        flowDefinitionService.delete(deployId);
+    @DeleteMapping(value = "/{deployIds}")
+    public AjaxResult delete(@PathVariable String[] deployIds) {
+        for (String deployId : deployIds) {
+            flowDefinitionService.delete(deployId);
+        }
         return AjaxResult.success();
     }
 

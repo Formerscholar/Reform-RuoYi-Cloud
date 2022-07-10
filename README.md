@@ -1,4 +1,4 @@
-## RuoYi-flowable:perf: 运行变量更新 tony 2022/5/29 12:13
+## RuoYi-flowable:!5 批量删除流程
 
 ## RuoYi-Cloud:update 优化 CacheRequestFilter 使用枚举替换字符串 疯狂的狮子Li* 2022/5/31 10:55
 

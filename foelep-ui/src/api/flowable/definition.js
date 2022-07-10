@@ -105,11 +105,10 @@ export function updateDeployment(data) {
 }
 
 // 删除流程定义
-export function delDeployment(query) {
+export function delDeployment(deployId) {
   return request({
-    url: '/system/flowable/definition/delete/',
-    method: 'delete',
-    params: query
+    url: '/system/flowable/definition/' + deployId,
+    method: 'delete'
   })
 }
 

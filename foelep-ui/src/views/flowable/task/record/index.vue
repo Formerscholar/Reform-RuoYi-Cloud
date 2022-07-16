@@ -455,7 +455,7 @@ export default {
         return;
       }
       complete(this.taskForm).then(response => {
-        this.msgSuccess(response.msg);
+        this.$modal.msgSuccess(response.msg);
         this.goBack();
       });
     },
@@ -506,7 +506,7 @@ export default {
           variables.variables = formData;
            // 启动流程并将表单数据加入流程变量
           definitionStart(this.taskForm.procDefId, JSON.stringify(variables)).then(res => {
-            this.msgSuccess(res.msg);
+            this.$modal.msgSuccess(res.msg);
             this.goBack();
           })
         }
@@ -522,7 +522,7 @@ export default {
       this.$refs["taskForm"].validate(valid => {
         if (valid) {
           rejectTask(this.taskForm).then(res => {
-            this.msgSuccess(res.msg);
+            this.$modal.msgSuccess(res.msg);
             this.goBack();
           });
         }
@@ -542,7 +542,7 @@ export default {
       this.$refs["taskForm"].validate(valid => {
         if (valid) {
           returnTask(this.taskForm).then(res => {
-            this.msgSuccess(res.msg);
+            this.$modal.msgSuccess(res.msg);
             this.goBack()
           });
         }
@@ -560,7 +560,7 @@ export default {
       this.$refs["taskForm"].validate(valid => {
         if (valid) {
           delegate(this.taskForm).then(response => {
-            this.msgSuccess(response.msg);
+            this.$modal.msgSuccess(response.msg);
             this.goBack();
           });
         }

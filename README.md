@@ -1,6 +1,6 @@
 ## RuoYi-flowable:!5 批量删除流程
 
-## RuoYi-Cloud:!198 去除多余的逗号
+## RuoYi-Cloud: 升级spring-boot到最新版本2.6.8
 
 ### 远程数据库 sx4op71v
 
